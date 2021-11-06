@@ -1,0 +1,632 @@
+Analysis & Synthesis report for cpu
+Sun Sep 13 13:48:50 2020
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |bdf_vga_verilog_test|vga_char_test:inst|state
+ 10. State Machine - |bdf_vga_verilog_test|vga_verilog_test:inst13|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for LPM_ROM:inst_mem|altrom:srom|altsyncram:rom_block|altsyncram_d701:auto_generated
+ 16. Parameter Settings for User Entity Instance: LPM_ROM:inst_mem
+ 17. Parameter Settings for User Entity Instance: MP2X:inst9
+ 18. Parameter Settings for User Entity Instance: MP2X:inst5
+ 19. Parameter Settings for User Entity Instance: MP2X:inst6
+ 20. Parameter Settings for User Entity Instance: MP2X:inst7
+ 21. Parameter Settings for User Entity Instance: MP2X:inst8
+ 22. Parameter Settings for User Entity Instance: MP2X:inst3
+ 23. Parameter Settings for User Entity Instance: MP2X:inst4
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+ 26. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Sep 13 13:48:50 2020      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; cpu                                        ;
+; Top-level Entity Name              ; bdf_vga_verilog_test                       ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 309                                        ;
+;     Total combinational functions  ; 297                                        ;
+;     Dedicated logic registers      ; 93                                         ;
+; Total registers                    ; 93                                         ;
+; Total pins                         ; 44                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 64                                         ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                          ;
++----------------------------------------------------------------------------+----------------------+--------------------+
+; Option                                                                     ; Setting              ; Default Value      ;
++----------------------------------------------------------------------------+----------------------+--------------------+
+; Device                                                                     ; EP4CE6E22C8          ;                    ;
+; Top-level entity name                                                      ; bdf_vga_verilog_test ; cpu                ;
+; Family name                                                                ; Cyclone IV E         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                  ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                   ; On                 ;
+; Enable compact report table                                                ; Off                  ; Off                ;
+; Restructure Multiplexers                                                   ; Auto                 ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                  ; Off                ;
+; Preserve fewer node names                                                  ; On                   ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                  ; Off                ;
+; Verilog Version                                                            ; Verilog_2001         ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993            ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto                 ; Auto               ;
+; Safe State Machine                                                         ; Off                  ; Off                ;
+; Extract Verilog State Machines                                             ; On                   ; On                 ;
+; Extract VHDL State Machines                                                ; On                   ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                  ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000                 ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                  ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                   ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                   ; On                 ;
+; Parallel Synthesis                                                         ; On                   ; On                 ;
+; DSP Block Balancing                                                        ; Auto                 ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                   ; On                 ;
+; Power-Up Don't Care                                                        ; On                   ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                  ; Off                ;
+; Remove Duplicate Registers                                                 ; On                   ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                  ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                  ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                  ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                  ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                  ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                   ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                  ; Off                ;
+; Optimization Technique                                                     ; Balanced             ; Balanced           ;
+; Carry Chain Length                                                         ; 70                   ; 70                 ;
+; Auto Carry Chains                                                          ; On                   ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                   ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                  ; Off                ;
+; Auto ROM Replacement                                                       ; On                   ; On                 ;
+; Auto RAM Replacement                                                       ; On                   ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                   ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto                 ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                 ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                   ; On                 ;
+; Strict RAM Replacement                                                     ; Off                  ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                   ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                  ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                   ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                  ; Off                ;
+; Auto Resource Sharing                                                      ; Off                  ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                  ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                  ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                  ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                   ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                  ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                   ; On                 ;
+; Report Parameter Settings                                                  ; On                   ; On                 ;
+; Report Source Assignments                                                  ; On                   ; On                 ;
+; Report Connectivity Checks                                                 ; On                   ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                  ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                    ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation   ; Normal compilation ;
+; HDL message level                                                          ; Level2               ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                  ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                 ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                 ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                  ; 100                ;
+; Clock MUX Protection                                                       ; On                   ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                  ; Off                ;
+; Block Design Naming                                                        ; Auto                 ; Auto               ;
+; SDC constraint protection                                                  ; Off                  ; Off                ;
+; Synthesis Effort                                                           ; Auto                 ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                   ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                  ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium               ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto                 ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                   ; On                 ;
+; Synthesis Seed                                                             ; 1                    ; 1                  ;
++----------------------------------------------------------------------------+----------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
+; MP2X.vhd                         ; yes             ; User VHDL File                     ; D:/Proj/fpga/cpu/MP2X.vhd                                            ;         ;
+; ascii.mif                        ; yes             ; User Memory Initialization File    ; D:/Proj/fpga/cpu/ascii.mif                                           ;         ;
+; vga_verilog_test.v               ; yes             ; User Verilog HDL File              ; D:/Proj/fpga/cpu/vga_verilog_test.v                                  ;         ;
+; bdf_vga_verilog_test.bdf         ; yes             ; User Block Diagram/Schematic File  ; D:/Proj/fpga/cpu/bdf_vga_verilog_test.bdf                            ;         ;
+; vga_verilog_test_char.v          ; yes             ; User Verilog HDL File              ; D:/Proj/fpga/cpu/vga_verilog_test_char.v                             ;         ;
+; lpm_rom.tdf                      ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_rom.tdf           ;         ;
+; altrom.inc                       ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; aglobal131.inc                   ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc        ;         ;
+; altrom.tdf                       ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/altrom.tdf            ;         ;
+; memmodes.inc                     ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/others/maxplus2/memmodes.inc        ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; altsyncram.inc                   ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.inc        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altram.inc                       ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                       ; c:/altera/13.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_d701.tdf           ; yes             ; Auto-Generated Megafunction        ; D:/Proj/fpga/cpu/db/altsyncram_d701.tdf                              ;         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 309       ;
+;                                             ;           ;
+; Total combinational functions               ; 297       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 147       ;
+;     -- 3 input functions                    ; 57        ;
+;     -- <=2 input functions                  ; 93        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 258       ;
+;     -- arithmetic mode                      ; 39        ;
+;                                             ;           ;
+; Total registers                             ; 93        ;
+;     -- Dedicated logic registers            ; 93        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 44        ;
+; Total memory bits                           ; 64        ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 102       ;
+; Total fan-out                               ; 1332      ;
+; Average fan-out                             ; 2.65      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                              ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+; |bdf_vga_verilog_test                        ; 297 (2)           ; 93 (0)       ; 64          ; 0            ; 0       ; 0         ; 44   ; 0            ; |bdf_vga_verilog_test                                                                                  ; work         ;
+;    |MP2X:inst3|                              ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|MP2X:inst3                                                                       ; work         ;
+;    |MP2X:inst4|                              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|MP2X:inst4                                                                       ; work         ;
+;    |MP2X:inst5|                              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|MP2X:inst5                                                                       ; work         ;
+;    |MP2X:inst6|                              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|MP2X:inst6                                                                       ; work         ;
+;    |MP2X:inst7|                              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|MP2X:inst7                                                                       ; work         ;
+;    |MP2X:inst8|                              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|MP2X:inst8                                                                       ; work         ;
+;    |lpm_rom:inst_mem|                        ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|lpm_rom:inst_mem                                                                 ; work         ;
+;       |altrom:srom|                          ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|lpm_rom:inst_mem|altrom:srom                                                     ; work         ;
+;          |altsyncram:rom_block|              ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|lpm_rom:inst_mem|altrom:srom|altsyncram:rom_block                                ; work         ;
+;             |altsyncram_d701:auto_generated| ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|lpm_rom:inst_mem|altrom:srom|altsyncram:rom_block|altsyncram_d701:auto_generated ; work         ;
+;    |vga_char_test:inst|                      ; 51 (51)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|vga_char_test:inst                                                               ; work         ;
+;    |vga_verilog_test:inst13|                 ; 227 (227)         ; 72 (72)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bdf_vga_verilog_test|vga_verilog_test:inst13                                                          ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                         ;
++---------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
+; Name                                                                                        ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF       ;
++---------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
+; lpm_rom:inst_mem|altrom:srom|altsyncram:rom_block|altsyncram_d701:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 1016         ; 8            ; --           ; --           ; 8128 ; ascii.mif ;
++---------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------+
+; State Machine - |bdf_vga_verilog_test|vga_char_test:inst|state ;
++-----------+-----------+-----------+-----------+----------------+
+; Name      ; state.011 ; state.010 ; state.001 ; state.000      ;
++-----------+-----------+-----------+-----------+----------------+
+; state.000 ; 0         ; 0         ; 0         ; 0              ;
+; state.001 ; 0         ; 0         ; 1         ; 1              ;
+; state.010 ; 0         ; 1         ; 0         ; 1              ;
+; state.011 ; 1         ; 0         ; 0         ; 1              ;
++-----------+-----------+-----------+-----------+----------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bdf_vga_verilog_test|vga_verilog_test:inst13|state                                                                                                                                           ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+; Name       ; state.1110 ; state.1101 ; state.1100 ; state.1011 ; state.1010 ; state.1001 ; state.1000 ; state.0111 ; state.0110 ; state.0101 ; state.0100 ; state.0011 ; state.0010 ; state.0001 ; state.0000 ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+; state.0000 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ;
+; state.0001 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 1          ;
+; state.0010 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 1          ;
+; state.0011 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 1          ;
+; state.0100 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 1          ;
+; state.0101 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.0110 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.0111 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1000 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1001 ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1010 ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1011 ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1100 ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1101 ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
+; state.1110 ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ;
++------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++-----------------------------------------+-------------------------------------------+
+; Register name                           ; Reason for Removal                        ;
++-----------------------------------------+-------------------------------------------+
+; vga_char_test:inst|D_SDRAM[0,2..15]     ; Stuck at GND due to stuck port data_in    ;
+; vga_char_test:inst|B_SDRAM[0,1]         ; Stuck at GND due to stuck port data_in    ;
+; vga_verilog_test:inst13|data_out[0..14] ; Stuck at GND due to stuck port data_in    ;
+; vga_char_test:inst|A_SDRAM[9]           ; Merged with vga_char_test:inst|A_SDRAM[8] ;
+; vga_char_test:inst|A_SDRAM[4..7]        ; Merged with vga_char_test:inst|A_SDRAM[3] ;
+; vga_char_test:inst|A_SDRAM[3,8,11]      ; Stuck at GND due to stuck port data_in    ;
+; vga_char_test:inst|state~2              ; Lost fanout                               ;
+; vga_char_test:inst|state~3              ; Lost fanout                               ;
+; vga_char_test:inst|state~4              ; Lost fanout                               ;
+; vga_verilog_test:inst13|state~17        ; Lost fanout                               ;
+; vga_verilog_test:inst13|state~18        ; Lost fanout                               ;
+; vga_verilog_test:inst13|state~19        ; Lost fanout                               ;
+; vga_verilog_test:inst13|state~20        ; Lost fanout                               ;
+; vga_verilog_test:inst13|A_SDRAM[11]     ; Stuck at GND due to stuck port data_in    ;
+; Total Number of Removed Registers = 48  ;                                           ;
++-----------------------------------------+-------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 93    ;
+; Number of registers using Synchronous Clear  ; 14    ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 49    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; vga_verilog_test:inst13|SDRAM_CMD[3]    ; 1       ;
+; vga_char_test:inst|SDRAM_CMD[3]         ; 1       ;
+; vga_verilog_test:inst13|SDRAM_CMD[0]    ; 1       ;
+; vga_char_test:inst|SDRAM_CMD[0]         ; 1       ;
+; vga_verilog_test:inst13|SDRAM_CMD[1]    ; 1       ;
+; vga_char_test:inst|SDRAM_CMD[1]         ; 1       ;
+; vga_verilog_test:inst13|SDRAM_CMD[2]    ; 1       ;
+; vga_char_test:inst|SDRAM_CMD[2]         ; 1       ;
+; vga_char_test:inst|char_start           ; 2       ;
+; vga_verilog_test:inst13|oe              ; 4       ;
+; Total number of inverted registers = 10 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |bdf_vga_verilog_test|vga_char_test:inst|char_write_y[0] ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |bdf_vga_verilog_test|vga_verilog_test:inst13|timer[8]   ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |bdf_vga_verilog_test|vga_char_test:inst|A_SDRAM[2]      ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |bdf_vga_verilog_test|vga_char_test:inst|char_write_x[1] ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |bdf_vga_verilog_test|vga_verilog_test:inst13|x[6]       ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |bdf_vga_verilog_test|vga_verilog_test:inst13|y[4]       ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |bdf_vga_verilog_test|vga_verilog_test:inst13|x[4]       ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 15 LEs               ; 25 LEs                 ; Yes        ; |bdf_vga_verilog_test|vga_verilog_test:inst13|A_SDRAM[2] ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |bdf_vga_verilog_test|vga_verilog_test:inst13|A_SDRAM[1] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bdf_vga_verilog_test|vga_verilog_test:inst13|A_SDRAM    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Source assignments for LPM_ROM:inst_mem|altrom:srom|altsyncram:rom_block|altsyncram_d701:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                        ;
++---------------------------------+--------------------+------+-------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                         ;
++---------------------------------+--------------------+------+-------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_ROM:inst_mem ;
++------------------------+--------------+-----------------------+
+; Parameter Name         ; Value        ; Type                  ;
++------------------------+--------------+-----------------------+
+; LPM_WIDTH              ; 8            ; Untyped               ;
+; LPM_WIDTHAD            ; 10           ; Untyped               ;
+; LPM_NUMWORDS           ; 1016         ; Untyped               ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED   ; Untyped               ;
+; LPM_OUTDATA            ; UNREGISTERED ; Untyped               ;
+; LPM_FILE               ; ascii.mif    ; Untyped               ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped               ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE        ;
++------------------------+--------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst9 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 10    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst5 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 1     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst6 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 1     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst7 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 1     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst8 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 1     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst3 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 12    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MP2X:inst4 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; size           ; 2     ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sun Sep 13 13:48:47 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file risingedge.bdf
+    Info (12023): Found entity 1: RisingEdge
+Info (12021): Found 1 design units, including 1 entities, in source file debouncer.bdf
+    Info (12023): Found entity 1: Debouncer
+Info (12021): Found 1 design units, including 1 entities, in source file testovi/sdram_controller_test.bdf
+    Info (12023): Found entity 1: sdram_controller_test
+Info (12021): Found 2 design units, including 1 entities, in source file regx.vhd
+    Info (12022): Found design unit 1: REGX-rtl
+    Info (12023): Found entity 1: REGX
+Info (12021): Found 2 design units, including 1 entities, in source file mp2x.vhd
+    Info (12022): Found design unit 1: MP2X-rtl
+    Info (12023): Found entity 1: MP2X
+Info (12021): Found 2 design units, including 1 entities, in source file constx.vhd
+    Info (12022): Found design unit 1: CONSTX-rtl
+    Info (12023): Found entity 1: CONSTX
+Info (12021): Found 2 design units, including 1 entities, in source file cmpx.vhd
+    Info (12022): Found design unit 1: CMPX-rtl
+    Info (12023): Found entity 1: CMPX
+Info (12021): Found 2 design units, including 1 entities, in source file clk_divider.vhd
+    Info (12022): Found design unit 1: CLK_DIVIDER-rtl
+    Info (12023): Found entity 1: CLK_DIVIDER
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.bdf
+    Info (12023): Found entity 1: vga_controller
+Info (12021): Found 1 design units, including 1 entities, in source file gpu.bdf
+    Info (12023): Found entity 1: gpu
+Info (12021): Found 1 design units, including 1 entities, in source file main.bdf
+    Info (12023): Found entity 1: main
+Info (12021): Found 1 design units, including 1 entities, in source file layer0.bdf
+    Info (12023): Found entity 1: layer0
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.bdf
+    Info (12023): Found entity 1: cpu
+Info (12021): Found 1 design units, including 1 entities, in source file alu16.bdf
+    Info (12023): Found entity 1: ALU16
+Info (12021): Found 1 design units, including 1 entities, in source file mx4x1.bdf
+    Info (12023): Found entity 1: MX4x1
+Info (12021): Found 1 design units, including 1 entities, in source file cpu_upravljacka.bdf
+    Info (12023): Found entity 1: cpu_upravljacka
+Info (12021): Found 1 design units, including 1 entities, in source file sdram_controller.bdf
+    Info (12023): Found entity 1: sdram_controller
+Info (12021): Found 1 design units, including 1 entities, in source file testovi/mem_test.bdf
+    Info (12023): Found entity 1: mem_test
+Info (12021): Found 1 design units, including 1 entities, in source file inc10.bdf
+    Info (12023): Found entity 1: inc10
+Info (12021): Found 1 design units, including 1 entities, in source file inc7.bdf
+    Info (12023): Found entity 1: inc7
+Info (12021): Found 1 design units, including 1 entities, in source file layer1.bdf
+    Info (12023): Found entity 1: Layer1
+Info (12021): Found 1 design units, including 1 entities, in source file trash.bdf
+    Info (12023): Found entity 1: trash
+Info (12021): Found 1 design units, including 1 entities, in source file testovi/vga.bdf
+    Info (12023): Found entity 1: vga
+Info (12021): Found 1 design units, including 1 entities, in source file pcd8.bdf
+    Info (12023): Found entity 1: pCD8
+Info (12021): Found 1 design units, including 1 entities, in source file add2_11.bdf
+    Info (12023): Found entity 1: ADD2_11
+Info (12021): Found 1 design units, including 1 entities, in source file add11.bdf
+    Info (12023): Found entity 1: ADD11
+Info (12021): Found 1 design units, including 1 entities, in source file vga_verilog_test.v
+    Info (12023): Found entity 1: vga_verilog_test
+Info (12021): Found 1 design units, including 1 entities, in source file bdf_vga_verilog_test.bdf
+    Info (12023): Found entity 1: bdf_vga_verilog_test
+Info (12021): Found 1 design units, including 1 entities, in source file vga_verilog_test_char.v
+    Info (12023): Found entity 1: vga_char_test
+Warning (10236): Verilog HDL Implicit Net warning at vga_verilog_test.v(31): created implicit net for "SDRAM_CKE"
+Info (12127): Elaborating entity "bdf_vga_verilog_test" for the top level hierarchy
+Warning (275006): Can't find a definition for parameter LPM_FILE -- assuming ascii.mif was intended to be a quoted string
+Info (12128): Elaborating entity "vga_verilog_test" for hierarchy "vga_verilog_test:inst13"
+Warning (10036): Verilog HDL or VHDL warning at vga_verilog_test.v(31): object "SDRAM_CKE" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(52): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(53): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(54): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(73): truncated value with size 32 to match size of target (14)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(82): truncated value with size 32 to match size of target (14)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(164): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(167): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(209): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test.v(212): truncated value with size 32 to match size of target (11)
+Warning (10034): Output port "font_addr" at vga_verilog_test.v(16) has no driver
+Info (12128): Elaborating entity "LPM_ROM" for hierarchy "LPM_ROM:inst_mem"
+Info (12130): Elaborated megafunction instantiation "LPM_ROM:inst_mem"
+Info (12133): Instantiated megafunction "LPM_ROM:inst_mem" with the following parameter:
+    Info (12134): Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info (12134): Parameter "LPM_FILE" = "ascii.mif"
+    Info (12134): Parameter "LPM_NUMWORDS" = "1016"
+    Info (12134): Parameter "LPM_OUTDATA" = "UNREGISTERED"
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+    Info (12134): Parameter "LPM_WIDTHAD" = "10"
+Info (12128): Elaborating entity "altrom" for hierarchy "LPM_ROM:inst_mem|altrom:srom"
+Info (12131): Elaborated megafunction instantiation "LPM_ROM:inst_mem|altrom:srom", which is child of megafunction instantiation "LPM_ROM:inst_mem"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "LPM_ROM:inst_mem|altrom:srom|altsyncram:rom_block"
+Info (12131): Elaborated megafunction instantiation "LPM_ROM:inst_mem|altrom:srom|altsyncram:rom_block", which is child of megafunction instantiation "LPM_ROM:inst_mem"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d701.tdf
+    Info (12023): Found entity 1: altsyncram_d701
+Info (12128): Elaborating entity "altsyncram_d701" for hierarchy "LPM_ROM:inst_mem|altrom:srom|altsyncram:rom_block|altsyncram_d701:auto_generated"
+Info (12128): Elaborating entity "MP2X" for hierarchy "MP2X:inst9"
+Info (12128): Elaborating entity "vga_char_test" for hierarchy "vga_char_test:inst"
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test_char.v(79): truncated value with size 32 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at vga_verilog_test_char.v(99): truncated value with size 32 to match size of target (3)
+Info (12128): Elaborating entity "MP2X" for hierarchy "MP2X:inst5"
+Info (12128): Elaborating entity "MP2X" for hierarchy "MP2X:inst3"
+Info (12128): Elaborating entity "MP2X" for hierarchy "MP2X:inst4"
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "lpm_rom:inst_mem|otri[0]" feeding internal logic into a wire
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LDQM_SDRAM" is stuck at GND
+    Warning (13410): Pin "UDQM_SDRAM" is stuck at GND
+    Warning (13410): Pin "CKE_SDRAM" is stuck at VCC
+    Warning (13410): Pin "A_SDRAM[11]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (17036): Removed 7 MSB VCC or GND address nodes from RAM block "lpm_rom:inst_mem|altrom:srom|altsyncram:rom_block|altsyncram_d701:auto_generated|ALTSYNCRAM"
+Info (144001): Generated suppressed messages file D:/Proj/fpga/cpu/output_files/cpu.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 363 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 27 output pins
+    Info (21060): Implemented 16 bidirectional pins
+    Info (21061): Implemented 311 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 4673 megabytes
+    Info: Processing ended: Sun Sep 13 13:48:50 2020
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Proj/fpga/cpu/output_files/cpu.map.smsg.
+
+

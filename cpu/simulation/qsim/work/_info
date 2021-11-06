@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Proj\fpga\cpu\simulation\qsim
+vvga
+Z1 !s100 3Y2>nHn1Q^8gihma]b_lI3
+Z2 I7AF[4G2=NTT0KImIO049K0
+Z3 V:bkLImK^9K:bWUi:SeQ1:3
+Z4 dD:\Proj\fpga\cpu\simulation\qsim
+Z5 w1599313363
+Z6 8cpu.vo
+Z7 Fcpu.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|cpu.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1599313363.907000
+Z12 !s107 cpu.vo|
+!s101 -O0
+vvga_vlg_check_tst
+!i10b 1
+!s100 ;lk1a@I@Jh_bd@YKa6hNX1
+IAD=@7_j=4CJRO>@Me<5MT1
+Z13 V6_cX@af6:6;ba9EGlnJle3
+R4
+Z14 w1599313361
+Z15 8Waveform.vwf.vt
+Z16 FWaveform.vwf.vt
+L0 59
+R8
+r1
+!s85 0
+31
+Z17 !s108 1599313364.411000
+Z18 !s107 Waveform.vwf.vt|
+Z19 !s90 -work|work|Waveform.vwf.vt|
+!s101 -O0
+R10
+vvga_vlg_sample_tst
+!i10b 1
+Z20 !s100 1GJ>S2e6NQ>IDMh^lnheJ3
+Z21 I^M`KN2SZn3FGCQ8]Yii=>3
+Z22 V;<VI5illP>=BTY9J?gGDH2
+R4
+R14
+R15
+R16
+L0 29
+R8
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R10
+vvga_vlg_vec_tst
+!i10b 1
+!s100 34]KKNWGJfZbd`k=l>mDC2
+IE4>TE3]<bd7NE[YC[S5:m1
+Z23 V=A_?V1YbmNB9QDzK;dzPl1
+R4
+R14
+R15
+R16
+L0 764
+R8
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R10

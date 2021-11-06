@@ -1,0 +1,176 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 248 384)
+	(text "vga_verilog_test" (rect 5 0 72 12)(font "Arial" ))
+	(text "inst" (rect 8 352 20 364)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK" (rect 0 0 20 12)(font "Arial" ))
+		(text "CLK" (rect 21 27 41 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "font_data[7..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "font_data[7..0]" (rect 21 43 78 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "RED" (rect 0 0 22 12)(font "Arial" ))
+		(text "RED" (rect 189 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 1))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "GREEN" (rect 0 0 36 12)(font "Arial" ))
+		(text "GREEN" (rect 175 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 1))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "BLUE" (rect 0 0 25 12)(font "Arial" ))
+		(text "BLUE" (rect 186 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "V_SYNC" (rect 0 0 41 12)(font "Arial" ))
+		(text "V_SYNC" (rect 170 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 1))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "H_SYNC" (rect 0 0 40 12)(font "Arial" ))
+		(text "H_SYNC" (rect 171 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96)(line_width 1))
+	)
+	(port
+		(pt 232 128)
+		(output)
+		(text "A_SDRAM[11..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "A_SDRAM[11..0]" (rect 137 123 211 135)(font "Arial" ))
+		(line (pt 232 128)(pt 216 128)(line_width 3))
+	)
+	(port
+		(pt 232 144)
+		(output)
+		(text "B_SDRAM[1..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "B_SDRAM[1..0]" (rect 143 139 211 151)(font "Arial" ))
+		(line (pt 232 144)(pt 216 144)(line_width 3))
+	)
+	(port
+		(pt 232 160)
+		(output)
+		(text "CKE_SDRAM" (rect 0 0 64 12)(font "Arial" ))
+		(text "CKE_SDRAM" (rect 147 155 211 167)(font "Arial" ))
+		(line (pt 232 160)(pt 216 160)(line_width 1))
+	)
+	(port
+		(pt 232 176)
+		(output)
+		(text "CSn_SDRAM" (rect 0 0 61 12)(font "Arial" ))
+		(text "CSn_SDRAM" (rect 150 171 211 183)(font "Arial" ))
+		(line (pt 232 176)(pt 216 176)(line_width 1))
+	)
+	(port
+		(pt 232 192)
+		(output)
+		(text "WEn_SDRAM" (rect 0 0 66 12)(font "Arial" ))
+		(text "WEn_SDRAM" (rect 145 187 211 199)(font "Arial" ))
+		(line (pt 232 192)(pt 216 192)(line_width 1))
+	)
+	(port
+		(pt 232 208)
+		(output)
+		(text "CASn_SDRAM" (rect 0 0 69 12)(font "Arial" ))
+		(text "CASn_SDRAM" (rect 142 203 211 215)(font "Arial" ))
+		(line (pt 232 208)(pt 216 208)(line_width 1))
+	)
+	(port
+		(pt 232 224)
+		(output)
+		(text "RASn_SDRAM" (rect 0 0 70 12)(font "Arial" ))
+		(text "RASn_SDRAM" (rect 141 219 211 231)(font "Arial" ))
+		(line (pt 232 224)(pt 216 224)(line_width 1))
+	)
+	(port
+		(pt 232 240)
+		(output)
+		(text "CLK_SDRAM" (rect 0 0 63 12)(font "Arial" ))
+		(text "CLK_SDRAM" (rect 148 235 211 247)(font "Arial" ))
+		(line (pt 232 240)(pt 216 240)(line_width 1))
+	)
+	(port
+		(pt 232 256)
+		(output)
+		(text "LDQM_SDRAM" (rect 0 0 71 12)(font "Arial" ))
+		(text "LDQM_SDRAM" (rect 140 251 211 263)(font "Arial" ))
+		(line (pt 232 256)(pt 216 256)(line_width 1))
+	)
+	(port
+		(pt 232 272)
+		(output)
+		(text "UDQM_SDRAM" (rect 0 0 73 12)(font "Arial" ))
+		(text "UDQM_SDRAM" (rect 138 267 211 279)(font "Arial" ))
+		(line (pt 232 272)(pt 216 272)(line_width 1))
+	)
+	(port
+		(pt 232 288)
+		(output)
+		(text "font_addr[9..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "font_addr[9..0]" (rect 152 283 211 295)(font "Arial" ))
+		(line (pt 232 288)(pt 216 288)(line_width 3))
+	)
+	(port
+		(pt 232 304)
+		(output)
+		(text "x[10..0]" (rect 0 0 28 12)(font "Arial" ))
+		(text "x[10..0]" (rect 183 299 211 311)(font "Arial" ))
+		(line (pt 232 304)(pt 216 304)(line_width 3))
+	)
+	(port
+		(pt 232 320)
+		(output)
+		(text "y[9..0]" (rect 0 0 25 12)(font "Arial" ))
+		(text "y[9..0]" (rect 186 315 211 327)(font "Arial" ))
+		(line (pt 232 320)(pt 216 320)(line_width 3))
+	)
+	(port
+		(pt 232 112)
+		(bidir)
+		(text "D_SDRAM[15..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "D_SDRAM[15..0]" (rect 137 107 211 119)(font "Arial" ))
+		(line (pt 232 112)(pt 216 112)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 352)(line_width 1))
+	)
+)

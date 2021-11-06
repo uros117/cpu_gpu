@@ -1,0 +1,926 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "09/05/2020 15:42:41"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    vga
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module vga_vlg_sample_tst(
+	CLK,
+	D_SDRAM,
+	sampler_tx
+);
+input  CLK;
+input [15:0] D_SDRAM;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(CLK or D_SDRAM)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module vga_vlg_check_tst (
+	A_SDRAM,
+	BLUE,
+	BS,
+	CAS_SDRAM,
+	CKE_SDRAM,
+	CLK_SDRAM,
+	CS_SDRAM,
+	D_SDRAM,
+	GREEN,
+	H_SYNC,
+	LDQM_SDRAM,
+	RAS_SDRAM,
+	RED,
+	UDQM_SDRAM,
+	V_SYNC,
+	WE_SDRAM,
+	sampler_rx
+);
+input [11:0] A_SDRAM;
+input  BLUE;
+input [1:0] BS;
+input  CAS_SDRAM;
+input  CKE_SDRAM;
+input  CLK_SDRAM;
+input  CS_SDRAM;
+input [15:0] D_SDRAM;
+input  GREEN;
+input  H_SYNC;
+input  LDQM_SDRAM;
+input  RAS_SDRAM;
+input  RED;
+input  UDQM_SDRAM;
+input  V_SYNC;
+input  WE_SDRAM;
+input sampler_rx;
+
+reg [11:0] A_SDRAM_expected;
+reg  BLUE_expected;
+reg [1:0] BS_expected;
+reg  CAS_SDRAM_expected;
+reg  CKE_SDRAM_expected;
+reg  CLK_SDRAM_expected;
+reg  CS_SDRAM_expected;
+reg [15:0] D_SDRAM_expected;
+reg  GREEN_expected;
+reg  H_SYNC_expected;
+reg  LDQM_SDRAM_expected;
+reg  RAS_SDRAM_expected;
+reg  RED_expected;
+reg  UDQM_SDRAM_expected;
+reg  V_SYNC_expected;
+reg  WE_SDRAM_expected;
+
+reg [11:0] A_SDRAM_prev;
+reg  BLUE_prev;
+reg [1:0] BS_prev;
+reg  CAS_SDRAM_prev;
+reg  CKE_SDRAM_prev;
+reg  CLK_SDRAM_prev;
+reg  CS_SDRAM_prev;
+reg [15:0] D_SDRAM_prev;
+reg  GREEN_prev;
+reg  H_SYNC_prev;
+reg  LDQM_SDRAM_prev;
+reg  RAS_SDRAM_prev;
+reg  RED_prev;
+reg  UDQM_SDRAM_prev;
+reg  V_SYNC_prev;
+reg  WE_SDRAM_prev;
+
+reg [11:0] A_SDRAM_expected_prev;
+reg [1:0] BS_expected_prev;
+reg  CAS_SDRAM_expected_prev;
+reg  CS_SDRAM_expected_prev;
+reg [15:0] D_SDRAM_expected_prev;
+reg  RAS_SDRAM_expected_prev;
+reg  WE_SDRAM_expected_prev;
+
+reg [11:0] last_A_SDRAM_exp;
+reg [1:0] last_BS_exp;
+reg  last_CAS_SDRAM_exp;
+reg  last_CS_SDRAM_exp;
+reg [15:0] last_D_SDRAM_exp;
+reg  last_RAS_SDRAM_exp;
+reg  last_WE_SDRAM_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:16] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 16'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	A_SDRAM_prev = A_SDRAM;
+	BLUE_prev = BLUE;
+	BS_prev = BS;
+	CAS_SDRAM_prev = CAS_SDRAM;
+	CKE_SDRAM_prev = CKE_SDRAM;
+	CLK_SDRAM_prev = CLK_SDRAM;
+	CS_SDRAM_prev = CS_SDRAM;
+	D_SDRAM_prev = D_SDRAM;
+	GREEN_prev = GREEN;
+	H_SYNC_prev = H_SYNC;
+	LDQM_SDRAM_prev = LDQM_SDRAM;
+	RAS_SDRAM_prev = RAS_SDRAM;
+	RED_prev = RED;
+	UDQM_SDRAM_prev = UDQM_SDRAM;
+	V_SYNC_prev = V_SYNC;
+	WE_SDRAM_prev = WE_SDRAM;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	A_SDRAM_expected_prev = A_SDRAM_expected;
+	BS_expected_prev = BS_expected;
+	CAS_SDRAM_expected_prev = CAS_SDRAM_expected;
+	CS_SDRAM_expected_prev = CS_SDRAM_expected;
+	D_SDRAM_expected_prev = D_SDRAM_expected;
+	RAS_SDRAM_expected_prev = RAS_SDRAM_expected;
+	WE_SDRAM_expected_prev = WE_SDRAM_expected;
+end
+
+
+// expected A_SDRAM[ 11 ]
+initial
+begin
+	A_SDRAM_expected[11] = 1'bX;
+end 
+// expected A_SDRAM[ 10 ]
+initial
+begin
+	A_SDRAM_expected[10] = 1'bX;
+end 
+// expected A_SDRAM[ 9 ]
+initial
+begin
+	A_SDRAM_expected[9] = 1'bX;
+end 
+// expected A_SDRAM[ 8 ]
+initial
+begin
+	A_SDRAM_expected[8] = 1'bX;
+end 
+// expected A_SDRAM[ 7 ]
+initial
+begin
+	A_SDRAM_expected[7] = 1'bX;
+end 
+// expected A_SDRAM[ 6 ]
+initial
+begin
+	A_SDRAM_expected[6] = 1'bX;
+end 
+// expected A_SDRAM[ 5 ]
+initial
+begin
+	A_SDRAM_expected[5] = 1'bX;
+end 
+// expected A_SDRAM[ 4 ]
+initial
+begin
+	A_SDRAM_expected[4] = 1'bX;
+end 
+// expected A_SDRAM[ 3 ]
+initial
+begin
+	A_SDRAM_expected[3] = 1'bX;
+end 
+// expected A_SDRAM[ 2 ]
+initial
+begin
+	A_SDRAM_expected[2] = 1'bX;
+end 
+// expected A_SDRAM[ 1 ]
+initial
+begin
+	A_SDRAM_expected[1] = 1'bX;
+end 
+// expected A_SDRAM[ 0 ]
+initial
+begin
+	A_SDRAM_expected[0] = 1'bX;
+end 
+// expected BS[ 1 ]
+initial
+begin
+	BS_expected[1] = 1'bX;
+end 
+// expected BS[ 0 ]
+initial
+begin
+	BS_expected[0] = 1'bX;
+end 
+
+// expected CS_SDRAM
+initial
+begin
+	CS_SDRAM_expected = 1'bX;
+end 
+
+// expected CAS_SDRAM
+initial
+begin
+	CAS_SDRAM_expected = 1'bX;
+end 
+
+// expected RAS_SDRAM
+initial
+begin
+	RAS_SDRAM_expected = 1'bX;
+end 
+
+// expected WE_SDRAM
+initial
+begin
+	WE_SDRAM_expected = 1'bX;
+end 
+// generate trigger
+always @(A_SDRAM_expected or A_SDRAM or BLUE_expected or BLUE or BS_expected or BS or CAS_SDRAM_expected or CAS_SDRAM or CKE_SDRAM_expected or CKE_SDRAM or CLK_SDRAM_expected or CLK_SDRAM or CS_SDRAM_expected or CS_SDRAM or D_SDRAM_expected or D_SDRAM or GREEN_expected or GREEN or H_SYNC_expected or H_SYNC or LDQM_SDRAM_expected or LDQM_SDRAM or RAS_SDRAM_expected or RAS_SDRAM or RED_expected or RED or UDQM_SDRAM_expected or UDQM_SDRAM or V_SYNC_expected or V_SYNC or WE_SDRAM_expected or WE_SDRAM)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected A_SDRAM = %b | expected BLUE = %b | expected BS = %b | expected CAS_SDRAM = %b | expected CKE_SDRAM = %b | expected CLK_SDRAM = %b | expected CS_SDRAM = %b | expected D_SDRAM = %b | expected GREEN = %b | expected H_SYNC = %b | expected LDQM_SDRAM = %b | expected RAS_SDRAM = %b | expected RED = %b | expected UDQM_SDRAM = %b | expected V_SYNC = %b | expected WE_SDRAM = %b | ",A_SDRAM_expected_prev,BLUE_expected_prev,BS_expected_prev,CAS_SDRAM_expected_prev,CKE_SDRAM_expected_prev,CLK_SDRAM_expected_prev,CS_SDRAM_expected_prev,D_SDRAM_expected_prev,GREEN_expected_prev,H_SYNC_expected_prev,LDQM_SDRAM_expected_prev,RAS_SDRAM_expected_prev,RED_expected_prev,UDQM_SDRAM_expected_prev,V_SYNC_expected_prev,WE_SDRAM_expected_prev);
+	$display("| real A_SDRAM = %b | real BLUE = %b | real BS = %b | real CAS_SDRAM = %b | real CKE_SDRAM = %b | real CLK_SDRAM = %b | real CS_SDRAM = %b | real D_SDRAM = %b | real GREEN = %b | real H_SYNC = %b | real LDQM_SDRAM = %b | real RAS_SDRAM = %b | real RED = %b | real UDQM_SDRAM = %b | real V_SYNC = %b | real WE_SDRAM = %b | ",A_SDRAM_prev,BLUE_prev,BS_prev,CAS_SDRAM_prev,CKE_SDRAM_prev,CLK_SDRAM_prev,CS_SDRAM_prev,D_SDRAM_prev,GREEN_prev,H_SYNC_prev,LDQM_SDRAM_prev,RAS_SDRAM_prev,RED_prev,UDQM_SDRAM_prev,V_SYNC_prev,WE_SDRAM_prev);
+`endif
+	if (
+		( A_SDRAM_expected_prev[0] !== 1'bx ) && ( A_SDRAM_prev[0] !== A_SDRAM_expected_prev[0] )
+		&& ((A_SDRAM_expected_prev[0] !== last_A_SDRAM_exp[0]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[0] = A_SDRAM_expected_prev[0];
+	end
+	if (
+		( A_SDRAM_expected_prev[1] !== 1'bx ) && ( A_SDRAM_prev[1] !== A_SDRAM_expected_prev[1] )
+		&& ((A_SDRAM_expected_prev[1] !== last_A_SDRAM_exp[1]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[1] = A_SDRAM_expected_prev[1];
+	end
+	if (
+		( A_SDRAM_expected_prev[2] !== 1'bx ) && ( A_SDRAM_prev[2] !== A_SDRAM_expected_prev[2] )
+		&& ((A_SDRAM_expected_prev[2] !== last_A_SDRAM_exp[2]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[2] = A_SDRAM_expected_prev[2];
+	end
+	if (
+		( A_SDRAM_expected_prev[3] !== 1'bx ) && ( A_SDRAM_prev[3] !== A_SDRAM_expected_prev[3] )
+		&& ((A_SDRAM_expected_prev[3] !== last_A_SDRAM_exp[3]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[3] = A_SDRAM_expected_prev[3];
+	end
+	if (
+		( A_SDRAM_expected_prev[4] !== 1'bx ) && ( A_SDRAM_prev[4] !== A_SDRAM_expected_prev[4] )
+		&& ((A_SDRAM_expected_prev[4] !== last_A_SDRAM_exp[4]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[4] = A_SDRAM_expected_prev[4];
+	end
+	if (
+		( A_SDRAM_expected_prev[5] !== 1'bx ) && ( A_SDRAM_prev[5] !== A_SDRAM_expected_prev[5] )
+		&& ((A_SDRAM_expected_prev[5] !== last_A_SDRAM_exp[5]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[5] = A_SDRAM_expected_prev[5];
+	end
+	if (
+		( A_SDRAM_expected_prev[6] !== 1'bx ) && ( A_SDRAM_prev[6] !== A_SDRAM_expected_prev[6] )
+		&& ((A_SDRAM_expected_prev[6] !== last_A_SDRAM_exp[6]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[6] = A_SDRAM_expected_prev[6];
+	end
+	if (
+		( A_SDRAM_expected_prev[7] !== 1'bx ) && ( A_SDRAM_prev[7] !== A_SDRAM_expected_prev[7] )
+		&& ((A_SDRAM_expected_prev[7] !== last_A_SDRAM_exp[7]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[7] = A_SDRAM_expected_prev[7];
+	end
+	if (
+		( A_SDRAM_expected_prev[8] !== 1'bx ) && ( A_SDRAM_prev[8] !== A_SDRAM_expected_prev[8] )
+		&& ((A_SDRAM_expected_prev[8] !== last_A_SDRAM_exp[8]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[8] = A_SDRAM_expected_prev[8];
+	end
+	if (
+		( A_SDRAM_expected_prev[9] !== 1'bx ) && ( A_SDRAM_prev[9] !== A_SDRAM_expected_prev[9] )
+		&& ((A_SDRAM_expected_prev[9] !== last_A_SDRAM_exp[9]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[9] = A_SDRAM_expected_prev[9];
+	end
+	if (
+		( A_SDRAM_expected_prev[10] !== 1'bx ) && ( A_SDRAM_prev[10] !== A_SDRAM_expected_prev[10] )
+		&& ((A_SDRAM_expected_prev[10] !== last_A_SDRAM_exp[10]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[10] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[10] = A_SDRAM_expected_prev[10];
+	end
+	if (
+		( A_SDRAM_expected_prev[11] !== 1'bx ) && ( A_SDRAM_prev[11] !== A_SDRAM_expected_prev[11] )
+		&& ((A_SDRAM_expected_prev[11] !== last_A_SDRAM_exp[11]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port A_SDRAM[11] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", A_SDRAM_expected_prev);
+		$display ("     Real value = %b", A_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_A_SDRAM_exp[11] = A_SDRAM_expected_prev[11];
+	end
+	if (
+		( BS_expected_prev[0] !== 1'bx ) && ( BS_prev[0] !== BS_expected_prev[0] )
+		&& ((BS_expected_prev[0] !== last_BS_exp[0]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port BS[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", BS_expected_prev);
+		$display ("     Real value = %b", BS_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_BS_exp[0] = BS_expected_prev[0];
+	end
+	if (
+		( BS_expected_prev[1] !== 1'bx ) && ( BS_prev[1] !== BS_expected_prev[1] )
+		&& ((BS_expected_prev[1] !== last_BS_exp[1]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port BS[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", BS_expected_prev);
+		$display ("     Real value = %b", BS_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_BS_exp[1] = BS_expected_prev[1];
+	end
+	if (
+		( CAS_SDRAM_expected_prev !== 1'bx ) && ( CAS_SDRAM_prev !== CAS_SDRAM_expected_prev )
+		&& ((CAS_SDRAM_expected_prev !== last_CAS_SDRAM_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port CAS_SDRAM :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", CAS_SDRAM_expected_prev);
+		$display ("     Real value = %b", CAS_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_CAS_SDRAM_exp = CAS_SDRAM_expected_prev;
+	end
+	if (
+		( CS_SDRAM_expected_prev !== 1'bx ) && ( CS_SDRAM_prev !== CS_SDRAM_expected_prev )
+		&& ((CS_SDRAM_expected_prev !== last_CS_SDRAM_exp) ||
+			on_first_change[7])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port CS_SDRAM :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", CS_SDRAM_expected_prev);
+		$display ("     Real value = %b", CS_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[7] = 1'b0;
+		last_CS_SDRAM_exp = CS_SDRAM_expected_prev;
+	end
+	if (
+		( D_SDRAM_expected_prev[0] !== 1'bx ) && ( D_SDRAM_prev[0] !== D_SDRAM_expected_prev[0] )
+		&& ((D_SDRAM_expected_prev[0] !== last_D_SDRAM_exp[0]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[0] = D_SDRAM_expected_prev[0];
+	end
+	if (
+		( D_SDRAM_expected_prev[1] !== 1'bx ) && ( D_SDRAM_prev[1] !== D_SDRAM_expected_prev[1] )
+		&& ((D_SDRAM_expected_prev[1] !== last_D_SDRAM_exp[1]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[1] = D_SDRAM_expected_prev[1];
+	end
+	if (
+		( D_SDRAM_expected_prev[2] !== 1'bx ) && ( D_SDRAM_prev[2] !== D_SDRAM_expected_prev[2] )
+		&& ((D_SDRAM_expected_prev[2] !== last_D_SDRAM_exp[2]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[2] = D_SDRAM_expected_prev[2];
+	end
+	if (
+		( D_SDRAM_expected_prev[3] !== 1'bx ) && ( D_SDRAM_prev[3] !== D_SDRAM_expected_prev[3] )
+		&& ((D_SDRAM_expected_prev[3] !== last_D_SDRAM_exp[3]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[3] = D_SDRAM_expected_prev[3];
+	end
+	if (
+		( D_SDRAM_expected_prev[4] !== 1'bx ) && ( D_SDRAM_prev[4] !== D_SDRAM_expected_prev[4] )
+		&& ((D_SDRAM_expected_prev[4] !== last_D_SDRAM_exp[4]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[4] = D_SDRAM_expected_prev[4];
+	end
+	if (
+		( D_SDRAM_expected_prev[5] !== 1'bx ) && ( D_SDRAM_prev[5] !== D_SDRAM_expected_prev[5] )
+		&& ((D_SDRAM_expected_prev[5] !== last_D_SDRAM_exp[5]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[5] = D_SDRAM_expected_prev[5];
+	end
+	if (
+		( D_SDRAM_expected_prev[6] !== 1'bx ) && ( D_SDRAM_prev[6] !== D_SDRAM_expected_prev[6] )
+		&& ((D_SDRAM_expected_prev[6] !== last_D_SDRAM_exp[6]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[6] = D_SDRAM_expected_prev[6];
+	end
+	if (
+		( D_SDRAM_expected_prev[7] !== 1'bx ) && ( D_SDRAM_prev[7] !== D_SDRAM_expected_prev[7] )
+		&& ((D_SDRAM_expected_prev[7] !== last_D_SDRAM_exp[7]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[7] = D_SDRAM_expected_prev[7];
+	end
+	if (
+		( D_SDRAM_expected_prev[8] !== 1'bx ) && ( D_SDRAM_prev[8] !== D_SDRAM_expected_prev[8] )
+		&& ((D_SDRAM_expected_prev[8] !== last_D_SDRAM_exp[8]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[8] = D_SDRAM_expected_prev[8];
+	end
+	if (
+		( D_SDRAM_expected_prev[9] !== 1'bx ) && ( D_SDRAM_prev[9] !== D_SDRAM_expected_prev[9] )
+		&& ((D_SDRAM_expected_prev[9] !== last_D_SDRAM_exp[9]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[9] = D_SDRAM_expected_prev[9];
+	end
+	if (
+		( D_SDRAM_expected_prev[10] !== 1'bx ) && ( D_SDRAM_prev[10] !== D_SDRAM_expected_prev[10] )
+		&& ((D_SDRAM_expected_prev[10] !== last_D_SDRAM_exp[10]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[10] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[10] = D_SDRAM_expected_prev[10];
+	end
+	if (
+		( D_SDRAM_expected_prev[11] !== 1'bx ) && ( D_SDRAM_prev[11] !== D_SDRAM_expected_prev[11] )
+		&& ((D_SDRAM_expected_prev[11] !== last_D_SDRAM_exp[11]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[11] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[11] = D_SDRAM_expected_prev[11];
+	end
+	if (
+		( D_SDRAM_expected_prev[12] !== 1'bx ) && ( D_SDRAM_prev[12] !== D_SDRAM_expected_prev[12] )
+		&& ((D_SDRAM_expected_prev[12] !== last_D_SDRAM_exp[12]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[12] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[12] = D_SDRAM_expected_prev[12];
+	end
+	if (
+		( D_SDRAM_expected_prev[13] !== 1'bx ) && ( D_SDRAM_prev[13] !== D_SDRAM_expected_prev[13] )
+		&& ((D_SDRAM_expected_prev[13] !== last_D_SDRAM_exp[13]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[13] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[13] = D_SDRAM_expected_prev[13];
+	end
+	if (
+		( D_SDRAM_expected_prev[14] !== 1'bx ) && ( D_SDRAM_prev[14] !== D_SDRAM_expected_prev[14] )
+		&& ((D_SDRAM_expected_prev[14] !== last_D_SDRAM_exp[14]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[14] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[14] = D_SDRAM_expected_prev[14];
+	end
+	if (
+		( D_SDRAM_expected_prev[15] !== 1'bx ) && ( D_SDRAM_prev[15] !== D_SDRAM_expected_prev[15] )
+		&& ((D_SDRAM_expected_prev[15] !== last_D_SDRAM_exp[15]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port D_SDRAM[15] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", D_SDRAM_expected_prev);
+		$display ("     Real value = %b", D_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_D_SDRAM_exp[15] = D_SDRAM_expected_prev[15];
+	end
+	if (
+		( RAS_SDRAM_expected_prev !== 1'bx ) && ( RAS_SDRAM_prev !== RAS_SDRAM_expected_prev )
+		&& ((RAS_SDRAM_expected_prev !== last_RAS_SDRAM_exp) ||
+			on_first_change[12])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port RAS_SDRAM :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", RAS_SDRAM_expected_prev);
+		$display ("     Real value = %b", RAS_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[12] = 1'b0;
+		last_RAS_SDRAM_exp = RAS_SDRAM_expected_prev;
+	end
+	if (
+		( WE_SDRAM_expected_prev !== 1'bx ) && ( WE_SDRAM_prev !== WE_SDRAM_expected_prev )
+		&& ((WE_SDRAM_expected_prev !== last_WE_SDRAM_exp) ||
+			on_first_change[16])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port WE_SDRAM :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", WE_SDRAM_expected_prev);
+		$display ("     Real value = %b", WE_SDRAM_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[16] = 1'b0;
+		last_WE_SDRAM_exp = WE_SDRAM_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module vga_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg CLK;
+reg [15:0] treg_D_SDRAM;
+// wires                                               
+wire [11:0] A_SDRAM;
+wire BLUE;
+wire [1:0] BS;
+wire CAS_SDRAM;
+wire CKE_SDRAM;
+wire CLK_SDRAM;
+wire CS_SDRAM;
+wire [15:0] D_SDRAM;
+wire GREEN;
+wire H_SYNC;
+wire LDQM_SDRAM;
+wire RAS_SDRAM;
+wire RED;
+wire UDQM_SDRAM;
+wire V_SYNC;
+wire WE_SDRAM;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+assign D_SDRAM = treg_D_SDRAM;
+vga i1 (
+// port map - connection between master ports and signals/registers   
+	.A_SDRAM(A_SDRAM),
+	.BLUE(BLUE),
+	.BS(BS),
+	.CAS_SDRAM(CAS_SDRAM),
+	.CKE_SDRAM(CKE_SDRAM),
+	.CLK(CLK),
+	.CLK_SDRAM(CLK_SDRAM),
+	.CS_SDRAM(CS_SDRAM),
+	.D_SDRAM(D_SDRAM),
+	.GREEN(GREEN),
+	.H_SYNC(H_SYNC),
+	.LDQM_SDRAM(LDQM_SDRAM),
+	.RAS_SDRAM(RAS_SDRAM),
+	.RED(RED),
+	.UDQM_SDRAM(UDQM_SDRAM),
+	.V_SYNC(V_SYNC),
+	.WE_SDRAM(WE_SDRAM)
+);
+
+// CLK
+always
+begin
+	CLK = 1'b0;
+	CLK = #5000 1'b1;
+	#5000;
+end 
+// D_SDRAM[ 15 ]
+initial
+begin
+	treg_D_SDRAM[15] = 1'bZ;
+end 
+// D_SDRAM[ 14 ]
+initial
+begin
+	treg_D_SDRAM[14] = 1'bZ;
+end 
+// D_SDRAM[ 13 ]
+initial
+begin
+	treg_D_SDRAM[13] = 1'bZ;
+end 
+// D_SDRAM[ 12 ]
+initial
+begin
+	treg_D_SDRAM[12] = 1'bZ;
+end 
+// D_SDRAM[ 11 ]
+initial
+begin
+	treg_D_SDRAM[11] = 1'bZ;
+end 
+// D_SDRAM[ 10 ]
+initial
+begin
+	treg_D_SDRAM[10] = 1'bZ;
+end 
+// D_SDRAM[ 9 ]
+initial
+begin
+	treg_D_SDRAM[9] = 1'bZ;
+end 
+// D_SDRAM[ 8 ]
+initial
+begin
+	treg_D_SDRAM[8] = 1'bZ;
+end 
+// D_SDRAM[ 7 ]
+initial
+begin
+	treg_D_SDRAM[7] = 1'bZ;
+end 
+// D_SDRAM[ 6 ]
+initial
+begin
+	treg_D_SDRAM[6] = 1'bZ;
+end 
+// D_SDRAM[ 5 ]
+initial
+begin
+	treg_D_SDRAM[5] = 1'bZ;
+end 
+// D_SDRAM[ 4 ]
+initial
+begin
+	treg_D_SDRAM[4] = 1'bZ;
+end 
+// D_SDRAM[ 3 ]
+initial
+begin
+	treg_D_SDRAM[3] = 1'bZ;
+end 
+// D_SDRAM[ 2 ]
+initial
+begin
+	treg_D_SDRAM[2] = 1'bZ;
+end 
+// D_SDRAM[ 1 ]
+initial
+begin
+	treg_D_SDRAM[1] = 1'bZ;
+end 
+// D_SDRAM[ 0 ]
+initial
+begin
+	treg_D_SDRAM[0] = 1'bZ;
+end 
+
+vga_vlg_sample_tst tb_sample (
+	.CLK(CLK),
+	.D_SDRAM(D_SDRAM),
+	.sampler_tx(sampler)
+);
+
+vga_vlg_check_tst tb_out(
+	.A_SDRAM(A_SDRAM),
+	.BLUE(BLUE),
+	.BS(BS),
+	.CAS_SDRAM(CAS_SDRAM),
+	.CKE_SDRAM(CKE_SDRAM),
+	.CLK_SDRAM(CLK_SDRAM),
+	.CS_SDRAM(CS_SDRAM),
+	.D_SDRAM(D_SDRAM),
+	.GREEN(GREEN),
+	.H_SYNC(H_SYNC),
+	.LDQM_SDRAM(LDQM_SDRAM),
+	.RAS_SDRAM(RAS_SDRAM),
+	.RED(RED),
+	.UDQM_SDRAM(UDQM_SDRAM),
+	.V_SYNC(V_SYNC),
+	.WE_SDRAM(WE_SDRAM),
+	.sampler_rx(sampler)
+);
+endmodule
+

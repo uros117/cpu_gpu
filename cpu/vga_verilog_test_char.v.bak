@@ -1,0 +1,70 @@
+module vga_verilog_test(
+	input CLK,
+	output wire RED,
+	output wire GREEN,
+	output wire BLUE,
+	output V_SYNC,
+	output H_SYNC,
+	
+	inout [15:0] D_SDRAM,
+	output reg [11:0] A_SDRAM,
+	output reg [1:0] B_SDRAM,
+	output CKE_SDRAM, CSn_SDRAM, WEn_SDRAM, CASn_SDRAM, RASn_SDRAM,
+	output CLK_SDRAM,
+	output LDQM_SDRAM, UDQM_SDRAM,
+	
+	output wire [9:0] font_addr,
+	input wire [7:0] font_data,
+	
+	output reg [10:0] x,
+	output reg [9:0] y,
+	output reg mx_en_char
+);
+
+	wire char_bounds = ((x > 803 & x < 928) & (y < 599)) | (x > 803 & y == 599) | (y > 599 & y < 665) | ( x < 928 & y == 665);
+	reg [2:0] char_state = 0;
+	reg char_start = 0;
+	reg [2:0] char_write_x = 0;
+	reg [2:0] char_write_y = 0;
+
+
+	always @(posedge CLK)
+	case(char_state)
+		3'h0: begin
+			if (char_bounds & char_start) begin
+				char_state <= 3'h1;
+				oe <= 1;
+			end
+		end
+		
+		3'h1: begin
+			SDRAM_CMD <= SDRAM_CMD_ACTIVE;
+			A_SDRAM <= {char_y, char_write_x};
+			B_SDRAM <= char_x[6:5];
+			char_state <= 4'h2;
+		end
+		
+		3'h2: begin
+			SDRAM_CMD <= SDRAM_CMD_WRITE;
+			data_out <= 16'b1000000000000001;
+		end
+		
+		3'h3: begin
+		
+		end
+		
+		3'h4: begin
+		
+		end
+		
+		3'h5: begin
+		
+		end
+		
+		3'h6: begin
+			oe <= 1;
+		end
+		
+	endcase
+
+endmodule
